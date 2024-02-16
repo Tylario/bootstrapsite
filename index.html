@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tylario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #181818;
+            color: #FFFFFF;
+        }
+
+        #programsTab {
+            position: absolute;
+            top: 30px;
+            height: 25px;
+            width: 120px;
+            left: 50%;
+            margin-left: -60px;
+            text-align: center;
+            font-weight: bold;
+            user-select: none;
+        }
+
+        #aboutMeTab {
+            position: absolute;
+            top: 30px;
+            height: 25px;
+            width: 100px;
+            left: 50%;
+            margin-left: -200px;
+            text-align: center;
+            user-select: none;
+        }
+
+        #contactTab {
+            position: absolute;
+            top: 30px;
+            height: 25px;
+            width: 100px;
+            left: 50%;
+            margin-left: 100px;
+            text-align: center;
+            user-select: none;
+        }
+
+        #activeTab {
+            position: absolute;
+            left: 50%;
+            width: 130px;
+            height: 45px;
+            border-radius: 15px;
+            margin-left: -65px;
+            border: 2px solid white;
+            top: 19px;
+            transition: margin-left 0.15s;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div id="activeTab"></div>
+        <div class="col-auto">
+            <div id="aboutMeTab" onclick="select(1)">About Me</div>
+        </div>
+        <div class="col-auto">
+            <div id="programsTab" onclick="select(2)">Stuff I made</div>
+        </div>
+        <div class="col-auto">
+            <div id="contactTab" onclick="select(3)">Contact</div>
+        </div>
+    </div>
+    
+    <div id="aboutMe" class="content-section mt-5">
+        <h2>About Me</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec odio nec nisl tincidunt tincidunt. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Here are a few things about me:</p>
+        <ul>
+            <li>Super swaggy programmer</li>
+            <li>Clearly the best student in your Software Engineering class</li>
+            <li>Actually enjoys going to class?</li>
+        </ul>
+        <p>For more information, download this <a href="https://www.tylar.io" target="_blank">fork bomb</a> onto your computer.
+    </div>
+    
+    
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center">
+            <div id="programs" class="content-section" style="width:476px">
+                <!-- Dynamically populated programs will go here -->
+            </div>
+        </div>
+    </div>
+    
+    <div id="contact" class="content-section mt-5">
+        <h2>Contact Me</h2>
+        <form>
+            <div class="mb-3">
+                <label for="contactName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="contactName" placeholder="Your Name">
+            </div>
+            <div class="mb-3"> <!-- Added space by using a new div -->
+                <textarea class="form-control" id="contactMessage" rows="6" placeholder="Your Message"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Contact Preferences</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="contactByEmail">
+                    <label class="form-check-label" for="contactByEmail">Email</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="contactByPhone">
+                    <label class="form-check-label" for="contactByPhone">Phone</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <br><br><br>
+        <footer class="bg-dark text-center text-white mt-5">
+            <div class="container p-4">
+                <section class="mb-4">
+                    <!-- Social media links -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/Tylario" role="button" target="_blank">Github</a>
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/tyler-joseph-hudson" role="button" target="_blank">LinkedIn</a>
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/tylar.io/" role="button" target="_blank">Instagram</a>
+                </section>
+                <section>
+                    <p>
+                        I think this bootstrap site deserves extra credit...
+                    </p>
+                </section>
+            </div>
+        </footer>
+    </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script>
+    programs = [ //title, date, cover image link, cover video link, languages, description, [[view program, hyperlink], [view program, hyperlink]]
+            [ "Procedural Terrain Generator", "https://www.tylar.io/assets/images/proceduralTerrainGenerator.png", "proceduralTerrainGenerator.mp4", "November 2023", "Unity, C#, ShaderLab", "This program is a terrain generator, which uses Perlin noise, and other procedural algorithms, as well as shader programming to create realistic, dynamic landscapes, suitable for use in game development and digital art projects", [["Explanation", "https://www.youtube.com/watch?v=bls9s1fJ9DE"], ["Github Repository", "https://github.com/Tylario/Procedural-Terrain-Generation"]]], 
+            [ "Portal Puzzle", "https://www.tylar.io/assets/images/portalPuzzle.png", "portalPuzzle.mp4", "September 2023", "Unity, C#", "Sand flows and portals glow in this one-of-a-kind puzzle adventure. This was my submission for UNCC \"Puzzle\" Game Jam. ", [["View Steam Page", "https://store.steampowered.com/app/2611630/Portal_Puzzle/"]]], 
+            [ "Dead Unending", "https://www.tylar.io/assets/images/deadUnending.png", "logisticMap.mp4", "December 2022", "Unity, C#", "A deadly virus plagues the city and the residents now roam the streets as flesh-eating zombies. Loot the apocalyptic open world and build a self-sustaining zombie-killing fortress. Will you survive the apocalypse or become one of the undead?", [ ["View Steam Page", "https://store.steampowered.com/app/2236240/Dead_Unending/"], ["CaRtOoNz Review", "https://www.youtube.com/watch?v=t_DdRp-dFa8&ab_channel=CaRtOoNz"], ["Presskit", "./other/press/DeadUnending.html"], ], ], 
+            [ "PEGGO!", "https://www.tylar.io/assets/images/plinkoClicker.png", "plinkoClicker.mp4", "May 2021", "Javascript, Matter.JS, HTML, CSS, Electron", "Become a PEGGO! Quintillionaire in this exciting pachinko incremental game. ", [["View Steam Page", "https://store.steampowered.com/app/1684820/PEGGO/"]], ], 
+            [ "Maze Chase", "https://www.tylar.io/assets/images/mazeChaseGame.png", "mazeChaseGame.mp4", "July 2023", "Javascript, HTML, CSS", "Chase a dot through a maze while evading one that's after you. Depth first algorithm is used to generate the maze. A* algorithm is used for pathfinding.", [["View Program", "https://www.tylar.io/programs/finished/mazeChaseGame/index.html"]]], 
+            [ "TILED", "https://www.tylar.io/assets/images/tiled.png", "plinkoClicker.mp4", "March 2022", "Javascript, HTML, CSS, Google Adsense", "Challenge yourself daily with TILED, a tile-flipping puzzle game where you must match the boards by flipping the right tiles. It's more challenging than it seems!", [["Play Game", "https://www.tylar.io/programs/finished/tiled/index.html"]], ], 
+            [ "Terrain Generator 3.0", "https://www.tylar.io/assets/images/terrainGenerator3.png", "terrainGenerator3.mp4", "February 2021", "Javascript, Three.JS, HTML, CSS", "Custom Generate massive chunks of terrain.", [["View Program", "https://www.tylar.io/programs/finished/terrainGenerator3/index.html"]], ], 
+            [ "Organism Evolution", "https://www.tylar.io/assets/images/organismEvolution.png", "organismEvolution.mp4", "March 2021", "Javascript, HTML, CSS", "Design a living organism and watch it thrive, eat, reproduce, and evolve in its virtual environment. Will your creation mutate and prosper or meet its demise?", [["Run Simulation", "https://www.tylar.io/programs/finished/organismEvolution/index.html"]], ], 
+            ["Maze Generator", "https://www.tylar.io/assets/images/mazeGenerator.png", "mazeGenerator.mp4", "April 2021", "Javascript, HTML, CSS", "Generate and play customizable mazes.", [["Generate a Maze", "https://www.tylar.io/programs/finished/mazeGenerator/index.html"]]], 
+            [ "Bit Battlegrounds", "https://www.tylar.io/assets/images/bitBattlegrounds.png", "bitBattlegrounds.mp4", "April 2019", "Javascript, HTML, CSS", "Teamed up with Drew Huffman to create this 1v1 battleground. Collect weapons and outsmart your opponent. Note: This game requires two separate keyboards for optimal gameplay.", [["Play Game", "https://www.tylar.io/programs/finished/bitBattlegrounds/index.html"]], ], 
+            [ "Rock Paper Scissors Royale", "https://www.tylar.io/assets/images/rockPaperScissors.png", "rockPaperScissors.mp4", "February 2021", "Javascript, CSS", "Tons of little floating rocks, paper, and scissors float around and collide with eachother playing a huge game of rock-paper-scissors.", [ ["V1", "https://www.tylar.io/programs/finished/rockPaperScissors/index.html"], ["Rock-Paper-Scissors-Royale", "https://www.tylar.io/programs/finished/rockPaperScissorsRoyale/index.html"], ], ], 
+            [ "Particle Playground", "https://www.tylar.io/assets/images/particlePlayground.png", "particlePlayground.mp4", "March 2021", "Javascript, HTML, CSS", "Simulation of sand particles with collision. Spawn walls or sand using the mouse and watch them interact.", [["Simulate", "https://www.tylar.io/programs/finished/particlePlayground/index.html"]], ], 
+            [ "Bit Battlegrounds 3D", "https://www.tylar.io/assets/images/bitBattlegrounds3D.png", "bitBattlegrounds3D.mp4", "November 2020", "Unreal Engine, C++ (blueprint)", "Project for Game Art & Design. Unleash your shooting skills in this first-person shooter game against waves of enemy drones and tanks. Survive as long as you can.", [["Download zipped program File", "https://www.tylar.io/programs/finished/bitBattlegrounds3D.zip"]], ], 
+            [ "Avoid The Asteroids", "https://www.tylar.io/assets/images/avoidTheAsteroids.png", "avoidTheAsteroids.mp4", "March 2019", "Javascript, HTML, CSS", "This is my 'create' task for computer principles AP. Put your reflexes to the test in this fast paced game where you must dodge asteroids and survive as long as possible.", [["View Program", "https://www.tylar.io/programs/finished/avoidTheAsteroids/index.html"]], ], 
+            [ "Guess The Word", "https://www.tylar.io/assets/images/guessTheWord.png", "guessTheWord.mp4", "June 2020", "Javascript, HTML, CSS", "Guess the secret word. Your guesses will be ranked alphabetically. Can you decipher the hidden word?", [["View Program", "https://www.tylar.io/programs/finished/guessTheWord/index.html"]], ], 
+            ["Logistic Map", "https://www.tylar.io/assets/images/logisticMap.png", "logisticMap.mp4", "June 2022", "Javascript", "Renders a logistic map. Logistic maps are cool, look them up.", [["View Program", "https://www.tylar.io/programs/finished/logisticMap/index.html"]]], 
+            ["Newton Fractal", "https://www.tylar.io/assets/images/newtonsFractal.png", "plinkoClicker.mp4", "May 2022", "Javascript, HTML, math.JS", "My attempt at displaying a Newton fractal.", [["View Program", "https://www.tylar.io/programs/finished/newtonsFractal/index.html"]]], 
+            [ "Seeded Fractal Generator", "https://www.tylar.io/assets/images/fractal.png", "plinkoClicker.mp4", "March 2022", "Javascript, HTML, CSS", "Generates a 'dragon curve' fractal based on the given seed. A fractal is a never-ending, infinitely complex pattern, they have a finite area but an infinite perimeter.", [["View Program", "https://www.tylar.io/programs/finished/fractal/index.html"]], ], 
+            [ "Infinite Platformer", "https://www.tylar.io/assets/images/infinitePlatformer.png", "plinkoClicker.mp4", "January 2022", "Javascript, HTML, CSS, Electron", "Simple 2D infinitely generating platformer. Venture further from the castle to increase your score. Created from scratch without physics or graphics libraries.", [["View Program", "https://www.tylar.io/programs/finished/infinitePlatformer/index.html"]], ], 
+            [ "Make The Screen Yellow", "https://www.tylar.io/assets/images/makeTheScreenYellow.png", "makeTheScreenYellow.mp4", "January 2021", "Javascript, HTML, CSS", "Fun time-waster game, just move the mouse around to collect the coins and watch them rapidly increase until they cover the screen.", [["View Program", "https://www.tylar.io/programs/finished/makeTheScreenYellow/index.html"]], ], 
+            [ "Terrain Generator 2.0", "https://www.tylar.io/assets/images/newTerrainGenerator.png", "newTerrainGenerator.mp4", "December 2020", "Javascript, Three.JS, HTML, CSS", "3D Terrain generator using Three.JS. Improved algorithm and customization.", [["View Program", "https://www.tylar.io/programs/finished/newTerrainGenerator/index.html"]], ], 
+            [ "Speed Test ", "https://www.tylar.io/assets/images/accuracyTest.png", "accuracyTest.mp4", "May 2019", "Javascript, HTML, CSS", "Test your accuracy with this program, customize the target size, hits, and iterations. I wrote this program in 23 minutes.", [["View Program", "https://www.tylar.io/programs/finished/accuracyTest/index.html"]], ], 
+            [ "Backwards Snake", "https://www.tylar.io/assets/images/backwardsSnake.png", "backwardsSnake.mp4", "2018", "Javascript, HTML, CSS", "My own take on the classic snake game. Collect apples to shorten your snake, be quick and don't get trapped by yourself. See if you can beat my high score!", [ ["View Program", "https://www.tylar.io/programs/finished/backwardsSnake/index.html"], ["Tron", "https://www.tylar.io/programs/finished/tron/index.html"], ["Two Player Snake", "https://www.tylar.io/programs/finished/twoPlayerSnake/index.html"], ["Snake", "https://www.tylar.io/programs/finished/snake/index.html"], ], ], 
+            [ "Particle Physics", "https://www.tylar.io/assets/images/particlePhysics.png", "particlePhysics.mp4", "2018", "Javascript, HTML, CSS", "Mess around with pixely particle physics. Draw lines or use the eraser and watch the particles move, float, fall and interact with eachother.", [["View Program", "https://www.tylar.io/programs/finished/particlePhysics/index.html"]], ], 
+            [ "XMR Browser Cryptocurrency Mine", "https://www.tylar.io/assets/images/xmrMine.png", "xmrMine.mp4", "2018", "Javascript, CoinHive, HTML, CSS", "Simple user interface to mine Monero (XMR) online, all you have to do is push a button. You can specify where the profit will be sent or you can show me some love and mine with the default address. [coinhive, the service I was using for this program has shut down March 8, 2019]", [["View Program", "https://www.tylar.io/programs/finished/xmrMine/index.html"]], ], 
+            [ "Geometry Editor", "https://www.tylar.io/assets/images/threejsGeometryEditor.png", "threejsGeometryEditor.mp4", "2018", "Javascript, Three.JS, HTML, CSS", "This is a 3D plane editor for three.js. You can customize plane size, edit vertices, and export the code.", [["View Program", "https://www.tylar.io/programs/finished/threejsGeometryEditor/index.html"]], ], 
+            [ "Insecure Calculator", "https://www.tylar.io/assets/images/insecureCalculator.png", "insecureCalculator.mp4", "2017", "Javascript, HTML, CSS", "This is a calculator but it's not very good.", [["View Program", "https://www.tylar.io/programs/finished/insecureCalculator/index.html"]], ], 
+            [ "Worlds Hardest Race", "https://www.tylar.io/assets/images/worldsHardestRace.png", "worldsHardestRace.mp4", "2017", "Javascript, HTML, CSS", "This is a parody of Worlds Hardest Game (by Snubby). You race a friend across 20 challenging levels.", [["View Program", "https://www.tylar.io/programs/finished/worldsHardestRace/index.html"]], ], 
+            [ "Gambling Game", "https://www.tylar.io/assets/images/gamblingGame.png", "gamblingGame.mp4", "2016", "Javascript, HTML, CSS", "Hold down the button to increase your reward, but don't wait too long or you might lose it all. The longer you hold out, the bigger the reward grows, exponentially.", [["View Program", "https://www.tylar.io/programs/finished/gamblingGame/index.html"]], ], 
+            [ "Gambling Game Strategy Tester", "https://www.tylar.io/assets/images/gamblingTest.png", "gamblingTest.mp4", "2017", "Javascript, HTML, CSS", "Test out your Strategy for my previous 'Gambling Game'. Change the wager, cashout value, loss/win multiplyer, and bets per second", [["View Program", "https://www.tylar.io/programs/finished/gamblingTest/index.html"]], ], 
+            ["3D Terrain Generator", "https://www.tylar.io/assets/images/3dTerrainGenerator.png", "3dTerrainGenerator.mp4", "2016", "Javascript, Three.JS, HTML, CSS", "Generates a 200x200 terrain.", [["View Program", "https://www.tylar.io/programs/finished/3dTerrainGenerator/index.html"]]], 
+            [ "Pixel Art Creator", "https://www.tylar.io/assets/images/pixelArtCreator.png", "pixelArtCreator.mp4", "2016", "Javascript, HTML, CSS", "Simple pixel art creator. Use pen & erasor to create your pixel art and save it as a 512x512 png.", [["View Program", "https://www.tylar.io/programs/finished/pixelArtCreator/index.html"]], ], 
+            [ "3D Equasion Grapher", "https://www.tylar.io/assets/images/3dEquasionGrapher.png", "3dEquasionGrapher.mp4", "2016", "Javascript, Three.JS, HTML, CSS", "I made this to help solve equasions in 8th grade. View and graph 3D functions, lines, and inequalities.", [["View Program", "https://www.tylar.io/programs/finished/3dEquasionGrapher/index.html"]], ], 
+            [ "Living Dead (cyoa)", "https://www.tylar.io/assets/images/livingDeadCyoa.png", "livingDeadCyoa.mp4", "2015", "Javascript, HTML, CSS", "This is a (cringey) choose your own adventure story I made in 7th grade. I was really into the Walking Dead Telltale games at the time.", [["View Program", "https://www.tylar.io/programs/finished/livingDeadCyoa/index.html#book"]], ], 
+            ["Basic 3D Game", "https://www.tylar.io/assets/images/basic3dGame.png", "basic3dGame.mp4", "2015", "Javascript, HTML, CSS", "Simple 3D house enviroment I made in 6th Grade.", [["View Program", "https://www.tylar.io/programs/finished/basic3dGame/index.html"]]], 
+            [ "Can You Press The Button?", "https://www.tylar.io/assets/images/canYouPressTheButton.png", "canYouPressTheButton.mp4", "2016", "Javascript, HTML, CSS", "The goal is to press the button. It shouldn't be difficult, right", [["View Program", "https://www.tylar.io/programs/finished/canYouPressTheButton/index.html"]], ],
+        ];
+
+    // Initialize with the "Stuff I Made" tab active
+    select(2);
+
+    //Populate "Stuff I Made" tab with programs
+    populatePrograms();
+
+    function select(tabNum) {
+        // Correct mapping of tab numbers to their ids
+        const tabs = {1: 'aboutMe', 2: 'programs', 3: 'contact'};
+        const tabId = tabs[tabNum]; // Corrected variable name here
+
+        // Assuming you want to adjust the font weight for the 'programsTab' and others, ensure they exist or adjust accordingly.
+        // Since your HTML does not include 'resumeTab', adjust your approach here.
+        document.getElementById("aboutMeTab").style.fontWeight = "normal";
+        document.getElementById("programsTab").style.fontWeight = "normal";
+        document.getElementById("contactTab").style.fontWeight = "normal";
+
+        // Hide all content sections
+        hideContent("aboutMe");
+        hideContent("programs");
+        hideContent("contact");
+
+        // Show the selected content section
+        showContent(tabId);
+
+        // Highlight the selected tab
+        if (document.getElementById(tabId + "Tab")) { // Safety check
+            document.getElementById(tabId + "Tab").style.fontWeight = "bold";
+        }
+
+        // Adjust position of the activeTab indicator (optional)
+        var position = (tabNum - 3) * 150 + 85; // Adjust as needed
+        document.getElementById("activeTab").style.marginLeft = `${position}px`;
+    }
+
+    function hideContent(id) {
+        document.getElementById(id).style.display = "none";
+    }
+
+    function showContent(id) {
+        document.getElementById(id).style.display = "block";
+    }
+
+
+    // Function to populate the programs section
+    function populatePrograms() {
+        //add a page break
+        document.getElementById("programs").innerHTML = "<br>";
+        for (var i = 0; i < programs.length; i++) {
+            // Create a link element
+            var a = document.createElement("a");
+            a.href = programs[i][6][0][1];
+            document.getElementById("programs").appendChild(a);
+
+            // Create an image element
+            var img = document.createElement("img");
+            img.loading = "lazy";
+            img.id = programs[i][0] + "cover";
+            img.src = programs[i][1];
+            img.style = "height:268px; width:476px; border-radius:8px; margin-bottom: 5px; border:2px solid white; background-image:url(assets/images/" + programs[i][1] + "); background-size: cover;";
+            a.appendChild(img);
+
+            // Create a div element for program title and details
+            var div = document.createElement("div");
+            div.id = programs[i][0] + "title";
+            div.style = "";
+            div.innerHTML = "<b>" + programs[i][0] + " </b>  &nbsp;&nbsp; <g style='font-size:13;'>" + programs[i][3] + " &nbsp;&nbsp; " + programs[i][4] + "</g><br> <g style='font-size:13;'>" + programs[i][5] + "</g><br>";
+
+            // Add links for each program option
+            for (var x = 0; x < programs[i][6].length; x++) {
+                div.innerHTML = div.innerHTML + " <g style='font-size:13;'> <a href=" + programs[i][6][x][1] + " style='color: #FFFFFF;'>" + programs[i][6][x][0] + "</a></g>";
+            }
+            
+            div.innerHTML = div.innerHTML + "<br><br><br><br>";
+
+            // Append the div to the programs section
+            document.getElementById("programs").appendChild(div);
+        }
+    }
+    
+
+</script>
+
+</body>
+</html>
