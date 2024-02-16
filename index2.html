@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Buddy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #181818;
+            color: #FFFFFF;
+        }
+
+        #tab_1 {
+            position: absolute;
+            top: 30px;
+            height: 25px;
+            width: 100px;
+            left: 50%;
+            margin-left: 100px;
+            text-align: center;
+            user-select: none;
+        }
+
+        #tab_2 {
+            position: absolute;
+            top: 30px;
+            height: 25px;
+            width: 120px;
+            left: 50%;
+            margin-left: -60px;
+            text-align: center;
+            font-weight: bold;
+            user-select: none;
+        }
+
+        #tab_3 {
+            position: absolute;
+            top: 30px;
+            height: 25px;
+            width: 100px;
+            left: 50%;
+            margin-left: -200px;
+            text-align: center;
+            user-select: none;
+        }
+
+        #loggedInTab {
+            position: absolute;
+            top: 30px;
+            height: 25px;
+            width: 100px;
+            left: 50%;
+            margin-left: 100px;
+            text-align: center;
+            user-select: none;
+        }
+
+        #activeTab {
+            position: absolute;
+            left: 50%;
+            width: 130px;
+            height: 45px;
+            border-radius: 15px;
+            margin-left: -65px;
+            border: 2px solid white;
+            top: 19px;
+            transition: margin-left 0.15s;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div id="activeTab"></div>
+        <div class="col-auto">
+            <div id="tab_3" onclick="select(1)">Contact Us</div>
+        </div>
+        <div class="col-auto">
+            <div id="tab_2" onclick="select(2)">Home</div>
+        </div>
+        <div class="col-auto">
+            <div id="tab_1" onclick="select(3)">Log in</div>
+        </div>
+
+    </div>
+    
+    <div id="aboutMe" class="content-section mt-5">
+        <h2>Contact Us</h2>
+        <form>
+            <div class="mb-3">
+                <label for="contactName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="contactName" placeholder="Your Name">
+            </div>
+            <div class="mb-3"> <!-- Added space by using a new div -->
+                <textarea class="form-control" id="contactMessage" rows="6" placeholder="Your Message (include contact information)"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Contact Preferences</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="contactByEmail">
+                    <label class="form-check-label" for="contactByEmail">Email</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="contactByPhone">
+                    <label class="form-check-label" for="contactByPhone">Phone</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
+    
+    <div class="container mt-5">
+        <br><br>
+        <div class="d-flex justify-content-center">
+            <div id="homePage" class="content-section" style="width:476px; text-align: center;">
+                <h2>Welcome to StudyBuddi</h2>
+                <br>
+                <img src="https://media.istockphoto.com/photos/diverse-group-of-college-students-studying-in-library-picture-id1149286339?k=6&m=1149286339&s=170667a&w=0&h=3mBz3JxBmdL9DH9PJAIg9RR2EPl64V-0wgg67NDJr3U=" alt="A Descriptive Alt Text" style="max-width: 100%; height: auto;">
+                <br><br>
+                <p>Join the StudyBuddi community and connect with fellow UNCC students for a unique pairing experience. Find your perfect study match, share contact info, and set the foundation for academic collaboration and success. Whether you're tackling challenging coursework or preparing for exams, StudyBuddi is here to help you find the ideal study partner. Get ready to boost your learning journey with one-on-one connections that make a difference!</p>
+                
+                <p>Why Choose StudyBuddi?</p>
+                <ul> <!-- Example of an unordered list -->
+                    <li>Easy and intuitive matching system.</li>
+                    <li>Exclusive to UNCC students - find peers from your own campus.</li>
+                    <li>Safe and secure platform for sharing contact information.</li>
+                </ul>
+                
+                <p>Looking for more information? Visit our <a href="https://www.uncc.edu" target="_blank">university page</a> to learn more about how StudyBuddi is making waves on campus!</p>
+                
+                <!-- You can add more content here -->
+                <p>Stay updated with the latest from StudyBuddi:</p>
+                <a href="https://twitter.com/StudyBuddi" target="_blank">Follow us on Twitter</a> <br>
+                <a href="https://instagram.com/StudyBuddi" target="_blank">Follow us on Instagram</a>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <div id="contact" class="content-section mt-5">
+        <div class="container mt-5">
+            <div class="d-flex justify-content-center">
+                <div id="loginPage" class="content-section" style="width:476px;">
+                    <h2>Log in</h2>
+                    <form onsubmit="event.preventDefault(); select(4);">
+                        <div class="mb-3">
+                            <label for="studentId" class="form-label">Student ID</label>
+                            <input type="text" class="form-control" id="studentId" required placeholder="Enter your student ID">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required placeholder="Enter your password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center">
+            <div id="using" class="content-section" style="width:476px">
+                Here is where we will put features like matching and displaying matches and options to change profile
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script>
+
+
+    // Initialize with the "Stuff I Made" tab active
+    select(2);
+
+    //Populate "Stuff I Made" tab with homePage
+    function select(tabNum) {
+        console.log(tabNum);
+        // Correct mapping of tab numbers to their ids
+        const tabs = {1: 'aboutMe', 2: 'homePage', 3: 'contact', 4: 'using'};
+        const tabId = tabs[tabNum]; // Corrected variable name here
+
+        // Assuming you want to adjust the font weight for the 'tab_2' and others, ensure they exist or adjust accordingly.
+        // Since your HTML does not include 'resumeTab', adjust your approach here.
+        document.getElementById("tab_3").style.fontWeight = "normal";
+        document.getElementById("tab_2").style.fontWeight = "normal";
+        document.getElementById("tab_1").style.fontWeight = "normal";
+
+        // Hide all content sections
+        hideContent("aboutMe");
+        hideContent("homePage");
+        hideContent("contact");
+        hideContent("using");
+
+        // Show the selected content section
+        showContent(tabId);
+
+        // Highlight the selected tab
+        if (document.getElementById(tabId + "Tab")) { // Safety check
+            document.getElementById(tabId + "Tab").style.fontWeight = "bold";
+        }
+
+        // Adjust position of the activeTab indicator (optional)
+        if (tabId == "using")
+        {
+            document.getElementById("tab_1").innerHTML = "Logged in";
+            
+        }
+        else
+        {
+            var position = (tabNum - 3) * 150 + 85; // Adjust as needed
+            document.getElementById("activeTab").style.marginLeft = `${position}px`;
+        }
+        
+    }
+
+    function hideContent(id) {
+        document.getElementById(id).style.display = "none";
+    }
+
+    function showContent(id) {
+
+        document.getElementById(id).style.display = "block";
+    }
+    
+
+</script>
+
+</body>
+</html>
